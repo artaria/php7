@@ -1,7 +1,12 @@
 <?php
 class Member{
-    public $username = "";
+    protected $username = "";
     public $islogined=false;
+
+    public function setUsername($username)
+    {
+        $this->username=$username;
+    }
 
     public function login()
     {
@@ -36,10 +41,10 @@ $user->login();
 var_dump($user);
 echo $user->userState();*/
 $user2=new Member();
-$user2->username = "ali";
+$user2->setUsername("ali");
 
 $admin=new Administrator();
-$admin->username = "admin";
+$admin->setUsername("admin");
 $admin->login();
 echo $admin->userState();
 echo $admin->createArticle("valentine");
