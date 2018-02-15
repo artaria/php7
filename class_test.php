@@ -1,11 +1,16 @@
 <?php
 class Member{
-    protected $username = "";
+    private $username = "";
     public $islogined=false;
 
     public function setUsername($username)
     {
         $this->username=$username;
+    }
+
+    public function getUsername()
+    {
+        return $this->username;
     }
 
     public function login()
@@ -27,12 +32,12 @@ class Member{
 class Administrator extends Member{
     public function createArticle($title)
     {
-        return "<br>the new article with title {$title} created by {$this->username}";
+        return "<br>the new article with title {$title} created by {$this->getUsername()}";
     }
 
     public function banUser(Member $user)
     {
-        return "<br>the user with username {$user->username} baned with administrator";
+        return "<br>the user with username {$user->getUsername()} baned with administrator";
     }
 }
 /*$user=new Member();
